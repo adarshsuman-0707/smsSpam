@@ -51,17 +51,13 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
 
-# Fix for NLTK data download on Render
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-os.makedirs(nltk_data_path, exist_ok=True)
-nltk.download("punkt", download_dir=nltk_data_path)
-nltk.download("stopwords", download_dir=nltk_data_path)
+# Point to local nltk_data
+nltk_data_path = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(nltk_data_path)
 
 app = Flask(__name__)
 CORS(app)
 
-# Load model and vectorizer
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 stemmer = PorterStemmer()
