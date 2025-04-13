@@ -46,9 +46,19 @@
 #     app.run(debug=True)
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import pickle, string, re
+import pickle, string, re, os
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+
+# Configure local nltk_data path
+nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+os.makedirs(nltk_data_path, exist_ok=True)
+nltk.download('stopwords', download_dir=nltk_data_path)
+nltk.data.path.append(nltk_data_path)
+nltk.download('punkt_tab', download_dir=nltk_data_path)
+
+nltk.data.path.append(nltk_data_path)
 
 app = Flask(__name__)
 CORS(app)
@@ -56,6 +66,7 @@ CORS(app)
 # Load model and vectorizer
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
+
 stemmer = PorterStemmer()
 
 def clean_text(text):
