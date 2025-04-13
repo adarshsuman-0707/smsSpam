@@ -12,7 +12,7 @@ if st.button("Predict"):
         st.warning("Please enter a message")
     else:
         try:
-            res = requests.post("http://127.0.0.1:5000/predict", json={"message": input_sms})
+            res = requests.post("https://smsspam-a9ln.onrender.com/predict", json={"message": input_sms})
             result = res.json().get("prediction", "Error")
             st.success(f"Prediction: {result}")
         except:
