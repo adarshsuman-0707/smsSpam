@@ -1,6 +1,5 @@
-## Check out my application on SMS Spam Detection
-https://expo.dev/accounts/adasum/projects/smsSpamapp/builds/6a899ff1-54d4-4350-8a97-f3532f55e825
-
+## Check out my application on SMS Spam Detection Project Made on ExpoGo
+(https://smsdetecctionapp.netlify.app/)
 # SMS Spam Detection
 
 This project aims to develop a machine-learning model to detect spam messages in SMS text data. It utilizes natural language processing (NLP) techniques and a supervised learning algorithm to classify SMS messages as either spam or non-spam (ham).
